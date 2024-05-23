@@ -1,11 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 
 namespace OnlineProdajaKarata.Models
 {
-    public class User
+    public class User : IdentityUser
     {
-        [Key]
-        public int IDUser { get; set; }
         public String Ime { get; set; }
         public String Prezime { get; set; }
         public String JMBG { get; set; }

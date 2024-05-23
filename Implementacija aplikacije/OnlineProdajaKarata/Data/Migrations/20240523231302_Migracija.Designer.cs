@@ -9,11 +9,11 @@ using OnlineProdajaKarata.Data;
 
 #nullable disable
 
-namespace OnlineProdajaKarata.Data.Migrations
+namespace OnlineProdajaKarata.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240522185612_PrvaMigracijaBazePodataka")]
-    partial class PrvaMigracijaBazePodataka
+    [Migration("20240523231302_Migracija")]
+    partial class Migracija
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -140,6 +140,8 @@ namespace OnlineProdajaKarata.Data.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.UseTptMappingStrategy();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -238,12 +240,6 @@ namespace OnlineProdajaKarata.Data.Migrations
                     b.Property<DateTime>("DatumKupovine")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("IDManifestacije")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IDUser")
-                        .HasColumnType("int");
-
                     b.Property<string>("KodKarte")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -251,7 +247,17 @@ namespace OnlineProdajaKarata.Data.Migrations
                     b.Property<int>("Kolicina")
                         .HasColumnType("int");
 
+                    b.Property<int>("Manifestacija")
+                        .HasColumnType("int");
+
+                    b.Property<string>("User")
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("IdKarte");
+
+                    b.HasIndex("Manifestacija");
+
+                    b.HasIndex("User");
 
                     b.ToTable("Karta", (string)null);
                 });
@@ -270,10 +276,12 @@ namespace OnlineProdajaKarata.Data.Migrations
                     b.Property<int>("BrojReda")
                         .HasColumnType("int");
 
-                    b.Property<int>("IdKarte")
+                    b.Property<int>("Karta")
                         .HasColumnType("int");
 
                     b.HasKey("IDMjesta");
+
+                    b.HasIndex("Karta");
 
                     b.ToTable("KupljenaMjesta", (string)null);
                 });
@@ -321,21 +329,13 @@ namespace OnlineProdajaKarata.Data.Migrations
 
             modelBuilder.Entity("OnlineProdajaKarata.Models.User", b =>
                 {
-                    b.Property<int>("IDUser")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IDUser"));
+                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
                     b.Property<int>("BrojKupljenihKarata")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("DatumRodjenja")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Ime")
                         .IsRequired()
@@ -356,8 +356,6 @@ namespace OnlineProdajaKarata.Data.Migrations
                     b.Property<string>("Username")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("IDUser");
 
                     b.ToTable("User", (string)null);
                 });
@@ -409,6 +407,43 @@ namespace OnlineProdajaKarata.Data.Migrations
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("OnlineProdajaKarata.Models.Karta", b =>
+                {
+                    b.HasOne("OnlineProdajaKarata.Models.Manifestacija", "IDManifestacije")
+                        .WithMany()
+                        .HasForeignKey("Manifestacija")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("OnlineProdajaKarata.Models.User", "IDUser")
+                        .WithMany()
+                        .HasForeignKey("User");
+
+                    b.Navigation("IDManifestacije");
+
+                    b.Navigation("IDUser");
+                });
+
+            modelBuilder.Entity("OnlineProdajaKarata.Models.KupljenaMjesta", b =>
+                {
+                    b.HasOne("OnlineProdajaKarata.Models.Karta", "IdKarte")
+                        .WithMany()
+                        .HasForeignKey("Karta")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("IdKarte");
+                });
+
+            modelBuilder.Entity("OnlineProdajaKarata.Models.User", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                        .WithOne()
+                        .HasForeignKey("OnlineProdajaKarata.Models.User", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

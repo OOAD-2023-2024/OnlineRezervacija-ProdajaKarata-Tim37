@@ -13,7 +13,7 @@ namespace OnlineProdajaKarata.Data
         }
         public DbSet<User> User { get; set; }
         public DbSet<Manifestacija> Manifestacija { get; set; }
-        public DbSet<KupljenaMjesta> KupljenaMjesta{get; set;}
+        public DbSet<KupljenaMjesta> KupljenaMjesta { get; set; }
         public DbSet<Karta> Karta { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

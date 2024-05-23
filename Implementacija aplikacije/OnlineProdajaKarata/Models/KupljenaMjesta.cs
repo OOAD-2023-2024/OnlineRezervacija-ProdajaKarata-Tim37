@@ -8,7 +8,7 @@ namespace OnlineProdajaKarata.Models
         [Key]
         public int IDMjesta { get; set; }
         [ForeignKey("Karta")]
-        public int IdKarte { get; set; }
+        public Karta IdKarte { get; set; }
         public int BrojReda { get; set; }
         public int BrojKolone { get; set; }
     }

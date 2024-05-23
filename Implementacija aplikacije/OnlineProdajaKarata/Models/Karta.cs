@@ -9,10 +9,10 @@ namespace OnlineProdajaKarata.Models
         public int IdKarte { get; set; }
 
         [ForeignKey("User")]
-        public int IDUser { get; set; }
+        public User IDUser { get; set; }
 
         [ForeignKey("Manifestacija")]
-        public int IDManifestacije { get; set; }
+        public Manifestacija IDManifestacije { get; set; }
         public String KodKarte { get; set; }
         public DateTime DatumKupovine { get; set; }
         public int Kolicina { get; set; }
