@@ -1,0 +1,66 @@
+﻿@model OnlineProdajaKarata.Models.Manifestacija
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Manifestacija</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NazivManifestacije)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NazivManifestacije)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DatumVrijeme)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DatumVrijeme)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Kategorija)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Kategorija)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MjestoOdrzavanja)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MjestoOdrzavanja)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TrajanjeManifestacije)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TrajanjeManifestacije)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.OpisManifestacije)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.OpisManifestacije)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CijenaKarte)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CijenaKarte)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Slika)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Slika)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.IDManifestacije">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

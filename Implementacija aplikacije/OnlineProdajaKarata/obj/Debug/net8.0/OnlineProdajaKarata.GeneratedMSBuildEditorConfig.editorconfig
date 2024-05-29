@@ -1,11 +1,19 @@
 is_global = true
 build_property.TargetFramework = net8.0
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
 build_property.TargetPlatformMinVersion = 
 build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
 build_property.PlatformNeutralAssembly = 
 build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = OnlineProdajaKarata
 build_property.RootNamespace = OnlineProdajaKarata
@@ -28,6 +36,26 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/denan/Desktop/ProjektOOAD/OnlineProdajaKarata/OnlineProdajaKarata/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/denan/Desktop/ProjektOOAD/OnlineProdajaKarata/OnlineProdajaKarata/Views/Manifestacija/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuaWZlc3RhY2lqYVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/denan/Desktop/ProjektOOAD/OnlineProdajaKarata/OnlineProdajaKarata/Views/Manifestacija/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuaWZlc3RhY2lqYVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/denan/Desktop/ProjektOOAD/OnlineProdajaKarata/OnlineProdajaKarata/Views/Manifestacija/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuaWZlc3RhY2lqYVxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/denan/Desktop/ProjektOOAD/OnlineProdajaKarata/OnlineProdajaKarata/Views/Manifestacija/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuaWZlc3RhY2lqYVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/denan/Desktop/ProjektOOAD/OnlineProdajaKarata/OnlineProdajaKarata/Views/Manifestacija/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuaWZlc3RhY2lqYVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/denan/Desktop/ProjektOOAD/OnlineProdajaKarata/OnlineProdajaKarata/Views/Shared/Error.cshtml]
