@@ -30,5 +30,5 @@ namespace OnlineProdajaKarata.Data
             });
             base.OnModelCreating(modelBuilder);
         }
-    }
+    }  
 }
