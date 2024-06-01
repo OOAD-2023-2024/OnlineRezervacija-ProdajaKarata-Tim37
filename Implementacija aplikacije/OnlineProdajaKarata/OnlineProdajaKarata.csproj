@@ -4,7 +4,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>aspnet-OnlineProdajaKarata-66fecb68-6add-426a-bb49-92ccaf5f90b9</UserSecretsId>
+    <UserSecretsId>aspnet-OnlineProdajaKarata-a5576146-2668-4d02-8267-5524f64686b5</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>

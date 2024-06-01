@@ -1,5 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OnlineProdajaKarata.Models
 {
@@ -9,7 +9,7 @@ namespace OnlineProdajaKarata.Models
         public int IdKarte { get; set; }
 
         [ForeignKey("User")]
-        public User IDUser { get; set; }
+        public Korisnik IDUser { get; set; }
 
         [ForeignKey("Manifestacija")]
         public Manifestacija IDManifestacije { get; set; }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2JylIDRC54E2wAm4GMMq+9rHXvsZD/fyZcoyKjChbAZUYepSUtKbvA03g8TD3r8iajZ5ujggvX80IMhVAc8Q5w==",
+  "dgSpecHash": "iSeqwCK/62Oxwb5PnWUQ1stSuRoOIQe7ERjvXBt1/IocrXASTqKgoy7NrQEWqgud8m9yc7IwRtKiZ0r/2RFewg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\denan\\Desktop\\ProjektOOAD\\OnlineProdajaKarata\\OnlineProdajaKarata\\OnlineProdajaKarata.csproj",
+  "projectFilePath": "C:\\Users\\denan\\Desktop\\ProjektOOADv2\\OnlineProdajaKarata\\OnlineProdajaKarata\\OnlineProdajaKarata.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\denan\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\denan\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

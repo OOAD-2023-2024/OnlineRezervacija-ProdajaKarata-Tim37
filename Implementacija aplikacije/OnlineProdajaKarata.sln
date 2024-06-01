@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineProdajaKarata", "OnlineProdajaKarata\OnlineProdajaKarata.csproj", "{D9380E56-45F5-4659-A0AE-928743C89C08}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineProdajaKarata", "OnlineProdajaKarata\OnlineProdajaKarata.csproj", "{3BB6FC60-9713-4519-8DB1-C6E99E6F186D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D9380E56-45F5-4659-A0AE-928743C89C08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D9380E56-45F5-4659-A0AE-928743C89C08}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D9380E56-45F5-4659-A0AE-928743C89C08}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D9380E56-45F5-4659-A0AE-928743C89C08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BB6FC60-9713-4519-8DB1-C6E99E6F186D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BB6FC60-9713-4519-8DB1-C6E99E6F186D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BB6FC60-9713-4519-8DB1-C6E99E6F186D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BB6FC60-9713-4519-8DB1-C6E99E6F186D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {B4E79167-B0A0-4635-8094-6373F104DBB2}
+		SolutionGuid = {7D4D688A-2E22-4553-9597-93FBC2C7FE76}
 	EndGlobalSection
 EndGlobal

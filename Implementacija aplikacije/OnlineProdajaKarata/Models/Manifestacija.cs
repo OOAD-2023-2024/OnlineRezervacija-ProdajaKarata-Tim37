@@ -8,7 +8,7 @@ namespace OnlineProdajaKarata.Models
         public int IDManifestacije { get; set; }
         public String NazivManifestacije { get; set; }
         public DateTime DatumVrijeme { get; set; }
-        public KategorijaManifestacije Kategorija { get; set; }
+        public String Kategorija { get; set; }
         public String MjestoOdrzavanja { get; set; }
         public int TrajanjeManifestacije { get; set; }
         public String OpisManifestacije { get; set; }

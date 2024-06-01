@@ -30,9 +30,16 @@ namespace OnlineProdajaKarata.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Ime = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Prezime = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    JMBG = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    KorisnickoIme = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DatumRodjenja = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    BrojKupljenihKarata = table.Column<int>(type: "int", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
-                    Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedEmail = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     EmailConfirmed = table.Column<bool>(type: "bit", nullable: false),
                     PasswordHash = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -58,7 +65,7 @@ namespace OnlineProdajaKarata.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     NazivManifestacije = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DatumVrijeme = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Kategorija = table.Column<int>(type: "int", nullable: false),
+                    Kategorija = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     MjestoOdrzavanja = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     TrajanjeManifestacije = table.Column<int>(type: "int", nullable: false),
                     OpisManifestacije = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -177,30 +184,6 @@ namespace OnlineProdajaKarata.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "User",
-                columns: table => new
-                {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Ime = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Prezime = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    JMBG = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Username = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DatumRodjenja = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    BrojKupljenihKarata = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_User", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_User_AspNetUsers_Id",
-                        column: x => x.Id,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Karta",
                 columns: table => new
                 {
@@ -216,16 +199,16 @@ namespace OnlineProdajaKarata.Migrations
                 {
                     table.PrimaryKey("PK_Karta", x => x.IdKarte);
                     table.ForeignKey(
+                        name: "FK_Karta_AspNetUsers_User",
+                        column: x => x.User,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
                         name: "FK_Karta_Manifestacija_Manifestacija",
                         column: x => x.Manifestacija,
                         principalTable: "Manifestacija",
                         principalColumn: "IDManifestacije",
                         onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Karta_User_User",
-                        column: x => x.User,
-                        principalTable: "User",
-                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -332,13 +315,10 @@ namespace OnlineProdajaKarata.Migrations
                 name: "Karta");
 
             migrationBuilder.DropTable(
-                name: "Manifestacija");
-
-            migrationBuilder.DropTable(
-                name: "User");
-
-            migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Manifestacija");
         }
     }
 }

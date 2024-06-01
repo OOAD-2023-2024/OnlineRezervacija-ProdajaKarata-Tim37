@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\denan\\Desktop\\ProjektOOAD\\OnlineProdajaKarata\\OnlineProdajaKarata\\OnlineProdajaKarata.csproj": {}
+    "C:\\Users\\denan\\Desktop\\ProjektOOADv2\\OnlineProdajaKarata\\OnlineProdajaKarata\\OnlineProdajaKarata.csproj": {}
   },
   "projects": {
-    "C:\\Users\\denan\\Desktop\\ProjektOOAD\\OnlineProdajaKarata\\OnlineProdajaKarata\\OnlineProdajaKarata.csproj": {
+    "C:\\Users\\denan\\Desktop\\ProjektOOADv2\\OnlineProdajaKarata\\OnlineProdajaKarata\\OnlineProdajaKarata.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\denan\\Desktop\\ProjektOOAD\\OnlineProdajaKarata\\OnlineProdajaKarata\\OnlineProdajaKarata.csproj",
+        "projectUniqueName": "C:\\Users\\denan\\Desktop\\ProjektOOADv2\\OnlineProdajaKarata\\OnlineProdajaKarata\\OnlineProdajaKarata.csproj",
         "projectName": "OnlineProdajaKarata",
-        "projectPath": "C:\\Users\\denan\\Desktop\\ProjektOOAD\\OnlineProdajaKarata\\OnlineProdajaKarata\\OnlineProdajaKarata.csproj",
+        "projectPath": "C:\\Users\\denan\\Desktop\\ProjektOOADv2\\OnlineProdajaKarata\\OnlineProdajaKarata\\OnlineProdajaKarata.csproj",
         "packagesPath": "C:\\Users\\denan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\denan\\Desktop\\ProjektOOAD\\OnlineProdajaKarata\\OnlineProdajaKarata\\obj\\",
+        "outputPath": "C:\\Users\\denan\\Desktop\\ProjektOOADv2\\OnlineProdajaKarata\\OnlineProdajaKarata\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\denan\\AppData\\Roaming\\NuGet\\NuGet.Config",
