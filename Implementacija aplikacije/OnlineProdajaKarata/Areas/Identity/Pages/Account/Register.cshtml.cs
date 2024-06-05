@@ -158,12 +158,12 @@ namespace OnlineProdajaKarata.Areas.Identity.Pages.Account
                 user.Email = Input.Email;
                 user.Password = Input.Password;
                 user.BrojKupljenihKarata = 0;
-                user.EmailConfirmed = false;
-                user.PhoneNumberConfirmed = false;  
+                user.EmailConfirmed = true;
+                user.PhoneNumberConfirmed = false;
                 user.TwoFactorEnabled = false;
                 user.LockoutEnabled = false;
                 user.AccessFailedCount = 0;
-                
+
                 try
                 {
                     user.DatumRodjenja = DateTime.ParseExact(Input.DatumRodjenja, "dd.MM.yyyy", null);
@@ -181,6 +181,17 @@ namespace OnlineProdajaKarata.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
+
+                    // Check if the email domain is "@kupikartu.ba" and assign "EMPLOYEE" role
+                    if (Input.Email.EndsWith("@kupikartu.ba", StringComparison.OrdinalIgnoreCase))
+                    {
+                        await _userManager.AddToRoleAsync(user, "Employee");
+                    }
+                    else
+                    {
+                        // Assign role to the user
+                        await _userManager.AddToRoleAsync(user, "User");
+                    }
 
                     var userId = await _userManager.GetUserIdAsync(user);
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
