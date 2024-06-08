@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\DT User3\\Desktop\\FINAL PROJEKAT\\OnlineRezervacija-ProdajaKarata-Tim37\\Implementacija aplikacije\\OnlineProdajaKarata\\OnlineProdajaKarata.csproj": {}
+    "C:\\Users\\DT User3\\Desktop\\Projekat\\OnlineRezervacija-ProdajaKarata-Tim37\\Implementacija aplikacije\\OnlineProdajaKarata\\OnlineProdajaKarata.csproj": {}
   },
   "projects": {
-    "C:\\Users\\DT User3\\Desktop\\FINAL PROJEKAT\\OnlineRezervacija-ProdajaKarata-Tim37\\Implementacija aplikacije\\OnlineProdajaKarata\\OnlineProdajaKarata.csproj": {
+    "C:\\Users\\DT User3\\Desktop\\Projekat\\OnlineRezervacija-ProdajaKarata-Tim37\\Implementacija aplikacije\\OnlineProdajaKarata\\OnlineProdajaKarata.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DT User3\\Desktop\\FINAL PROJEKAT\\OnlineRezervacija-ProdajaKarata-Tim37\\Implementacija aplikacije\\OnlineProdajaKarata\\OnlineProdajaKarata.csproj",
+        "projectUniqueName": "C:\\Users\\DT User3\\Desktop\\Projekat\\OnlineRezervacija-ProdajaKarata-Tim37\\Implementacija aplikacije\\OnlineProdajaKarata\\OnlineProdajaKarata.csproj",
         "projectName": "OnlineProdajaKarata",
-        "projectPath": "C:\\Users\\DT User3\\Desktop\\FINAL PROJEKAT\\OnlineRezervacija-ProdajaKarata-Tim37\\Implementacija aplikacije\\OnlineProdajaKarata\\OnlineProdajaKarata.csproj",
+        "projectPath": "C:\\Users\\DT User3\\Desktop\\Projekat\\OnlineRezervacija-ProdajaKarata-Tim37\\Implementacija aplikacije\\OnlineProdajaKarata\\OnlineProdajaKarata.csproj",
         "packagesPath": "C:\\Users\\DT User3\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DT User3\\Desktop\\FINAL PROJEKAT\\OnlineRezervacija-ProdajaKarata-Tim37\\Implementacija aplikacije\\OnlineProdajaKarata\\obj\\",
+        "outputPath": "C:\\Users\\DT User3\\Desktop\\Projekat\\OnlineRezervacija-ProdajaKarata-Tim37\\Implementacija aplikacije\\OnlineProdajaKarata\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

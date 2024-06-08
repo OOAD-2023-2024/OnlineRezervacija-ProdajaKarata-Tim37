@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,7 @@ using OnlineProdajaKarata.Models;
 
 namespace OnlineProdajaKarata.Controllers
 {
+    [Authorize(Roles = "Admin, Employee, User")]
     public class ManifestacijaController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -44,6 +46,7 @@ namespace OnlineProdajaKarata.Controllers
         }
 
         // GET: Manifestacija/Create
+        [Authorize(Roles = "Admin, Employee")]
         public IActionResult Create()
         {
             return View();
@@ -66,6 +69,7 @@ namespace OnlineProdajaKarata.Controllers
         }
 
         // GET: Manifestacija/Edit/5
+        [Authorize(Roles = "Admin, Employee")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -117,6 +121,7 @@ namespace OnlineProdajaKarata.Controllers
         }
 
         // GET: Manifestacija/Delete/5
+        [Authorize(Roles = "Admin, Employee")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)

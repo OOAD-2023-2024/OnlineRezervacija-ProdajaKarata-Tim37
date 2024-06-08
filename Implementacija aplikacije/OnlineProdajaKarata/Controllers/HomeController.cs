@@ -15,7 +15,7 @@ namespace OnlineProdajaKarata.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return RedirectToAction("Index", "Manifestacija");
         }
 
         public IActionResult Privacy()
