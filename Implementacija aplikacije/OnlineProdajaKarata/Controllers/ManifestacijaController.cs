@@ -11,7 +11,7 @@ using OnlineProdajaKarata.Models;
 
 namespace OnlineProdajaKarata.Controllers
 {
-    [Authorize(Roles = "Admin, Employee, User")]
+    
     public class ManifestacijaController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -28,6 +28,7 @@ namespace OnlineProdajaKarata.Controllers
         }
 
         // GET: Manifestacija/Details/5
+        [Authorize]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -57,6 +58,7 @@ namespace OnlineProdajaKarata.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin, Employee")]
         public async Task<IActionResult> Create([Bind("IDManifestacije,NazivManifestacije,DatumVrijeme,Kategorija,MjestoOdrzavanja,TrajanjeManifestacije,OpisManifestacije,CijenaKarte,Slika")] Manifestacija manifestacija)
         {
             if (ModelState.IsValid)
@@ -90,6 +92,7 @@ namespace OnlineProdajaKarata.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin, Employee")]
         public async Task<IActionResult> Edit(int id, [Bind("IDManifestacije,NazivManifestacije,DatumVrijeme,Kategorija,MjestoOdrzavanja,TrajanjeManifestacije,OpisManifestacije,CijenaKarte,Slika")] Manifestacija manifestacija)
         {
             if (id != manifestacija.IDManifestacije)
@@ -140,6 +143,7 @@ namespace OnlineProdajaKarata.Controllers
         }
 
         // POST: Manifestacija/Delete/5
+        [Authorize(Roles = "Admin, Employee")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
