@@ -18,6 +18,7 @@ namespace OnlineProdajaKarata.Controllers
     
     public class ManifestacijaController : Controller
     {
+        
         private readonly ApplicationDbContext _context;
 
         public ManifestacijaController(ApplicationDbContext context)
@@ -233,7 +234,7 @@ namespace OnlineProdajaKarata.Controllers
             if (!sedisteZauzeto)
             {
                 var userId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
-                string query = "INSERT INTO Karta (UserId, Manifestacija, KodKarte, DatumKupovine, Kolicina) VALUES (@UserID, @Manifestacijaa, @KodKartee,@Datum,@Kolicinaa)";
+                string query = "INSERT INTO Karta (Korisnik, Manifestacija, KodKarte, DatumKupovine, Kolicina) VALUES (@UserID, @Manifestacijaa, @KodKartee,@Datum,@Kolicinaa)";
                 var parameters = new[]
                 {
                     new SqlParameter("@UserID",userId),
@@ -243,30 +244,22 @@ namespace OnlineProdajaKarata.Controllers
                     new SqlParameter("@Kolicinaa", 1)
                 };
                 int rowsAffected = await _context.Database.ExecuteSqlRawAsync(query, parameters);
-            }
-            
 
+                string query1 = "SELECT MAX(IdKarte) FROM Karta";
+                int maxId = await _context.Karta.MaxAsync(k => k.IdKarte);
 
-            /*
-            var sedisteZauzeto = kupljenaMjesta.Any(s => s.BrojReda == red && s.BrojKolone == kolona);
-            if (!sedisteZauzeto)
-            {
-               
+                string query2 = "INSERT INTO KupljenaMjesta (Karta, BrojReda, BrojKolone) VALUES (@Karta, @BrojReda, @BrojKolone)";
+                 var parameters2 = new[]
+                 {
+                     new SqlParameter("@Karta",maxId),
+                     new SqlParameter("@BrojReda",red),
+                     new SqlParameter("@BrojKolone", kolona)
+                 };
+                 int rowsAffected2 = await _context.Database.ExecuteSqlRawAsync(query2, parameters2);
                 
-                var novaKarta = new Karta 
-                {
-                    IDUser = _context.Korisnik.Find(userId),  // Pretpostavlja se da imate način da pronađete korisnika u bazi
-                    IDManifestacije = _context.Manifestacija.Find(manifestacijaId), // Pretpostavlja se da postoji način za pristup manifestaciji
-                    KodKarte = Guid.NewGuid().ToString(), // Generisanje jedinstvenog koda za kartu
-                    DatumKupovine = DateTime.Now, // Trenutni datum i vreme kupovine
-                    Kolicina = 1 // Količina karti koje se kupuju
-                }
-                var novoMesto = new KupljenaMjesta { IDMjesta = manifestacijaId, BrojReda = red, BrojKolone = kolona };
-                _context.KupljenaMjesta.Add(novoMesto);
-                await _context.SaveChangesAsync();
-                return true;
-            }*/
-            return true;
+                 return true;
+            }
+            return false;
         }
 
 
