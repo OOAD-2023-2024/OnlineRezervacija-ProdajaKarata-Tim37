@@ -9,6 +9,9 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using OnlineProdajaKarata.Data;
 using OnlineProdajaKarata.Models;
+using Microsoft.AspNetCore.Identity;
+using System.Security.Claims;
+using Microsoft.Data.SqlClient;
 
 namespace OnlineProdajaKarata.Controllers
 {
@@ -175,6 +178,97 @@ namespace OnlineProdajaKarata.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+        
+        [HttpPost]
+        public async Task<IActionResult> KupiKartu(int ManifestacijaId, int brojReda, int brojKolone)
+        {
+            // Logika za proveru da li je sedište slobodno i za rezervaciju karte
+            // Pretpostavimo da imamo metodu za proveru i rezervaciju
+            var uspeh = await RezervisiSediste(ManifestacijaId, brojReda, brojKolone);
+            if (uspeh)
+            {
+                // Redirekcija na stranicu sa potvrdom ili povratkom na detalje
+                return View(await _context.Manifestacija.ToListAsync());
+            }
+            else
+            {
+                // Možda vratiti grešku ili poruku da je sedište već zauzeto
+                return View("Error", new ErrorViewModel());
+            }
+        }
+        /*[HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> KupiKartu([Bind("ID,Naziv,ECTS")] Predmet predmet
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(predmet);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(predmet);
+        }*/
+        public async Task<bool> RezervisiSediste(int manifestacijaId, int red, int kolona)
+        {
+            // Ovde bi išla logika za pristup bazi i rezervaciju sedišta
+            // Vraćanje true ako je rezervacija uspešna, false ako nije
+            var sql = @"
+            SELECT km.BrojReda, km.BrojKolone
+            FROM KupljenaMjesta km
+            JOIN Karta k ON km.Karta = k.IdKarte
+            JOIN Manifestacija m ON k.Manifestacija = m.IDManifestacije
+            WHERE m.IDManifestacije = {0}";
+
+            var kupljenaMjesta = await _context.KupljenaMjesta
+            .FromSqlRaw(sql, manifestacijaId)
+            .Select(km => new KupljenoMjestoViewModel
+            {
+                BrojReda = km.BrojReda,
+                BrojKolone = km.BrojKolone
+            })
+            .ToListAsync();
+
+            var sedisteZauzeto = kupljenaMjesta.Any(s => s.BrojReda == red && s.BrojKolone == kolona);
+
+            if (!sedisteZauzeto)
+            {
+                var userId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
+                string query = "INSERT INTO Karta (UserId, Manifestacija, KodKarte, DatumKupovine, Kolicina) VALUES (@UserID, @Manifestacijaa, @KodKartee,@Datum,@Kolicinaa)";
+                var parameters = new[]
+                {
+                    new SqlParameter("@UserID",userId),
+                    new SqlParameter("@Manifestacijaa",manifestacijaId),
+                    new SqlParameter("@KodKartee", "3f3f"),
+                    new SqlParameter("@Datum", DateTime.Now),
+                    new SqlParameter("@Kolicinaa", 1)
+                };
+                int rowsAffected = await _context.Database.ExecuteSqlRawAsync(query, parameters);
+            }
+            
+
+
+            /*
+            var sedisteZauzeto = kupljenaMjesta.Any(s => s.BrojReda == red && s.BrojKolone == kolona);
+            if (!sedisteZauzeto)
+            {
+               
+                
+                var novaKarta = new Karta 
+                {
+                    IDUser = _context.Korisnik.Find(userId),  // Pretpostavlja se da imate način da pronađete korisnika u bazi
+                    IDManifestacije = _context.Manifestacija.Find(manifestacijaId), // Pretpostavlja se da postoji način za pristup manifestaciji
+                    KodKarte = Guid.NewGuid().ToString(), // Generisanje jedinstvenog koda za kartu
+                    DatumKupovine = DateTime.Now, // Trenutni datum i vreme kupovine
+                    Kolicina = 1 // Količina karti koje se kupuju
+                }
+                var novoMesto = new KupljenaMjesta { IDMjesta = manifestacijaId, BrojReda = red, BrojKolone = kolona };
+                _context.KupljenaMjesta.Add(novoMesto);
+                await _context.SaveChangesAsync();
+                return true;
+            }*/
+            return true;
+        }
+
 
         private bool ManifestacijaExists(int id)
         {

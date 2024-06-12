@@ -8,7 +8,7 @@ namespace OnlineProdajaKarata.Models
         [Key]
         public int IdKarte { get; set; }
 
-        [ForeignKey("User")]
+        [ForeignKey("Korisnik")]
         public Korisnik IDUser { get; set; }
 
         [ForeignKey("Manifestacija")]
