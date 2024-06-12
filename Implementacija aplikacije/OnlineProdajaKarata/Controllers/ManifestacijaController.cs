@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -42,6 +43,23 @@ namespace OnlineProdajaKarata.Controllers
             {
                 return NotFound();
             }
+            var sql = @"
+            SELECT km.BrojReda, km.BrojKolone
+            FROM KupljenaMjesta km
+            JOIN Karta k ON km.Karta = k.IdKarte
+            JOIN Manifestacija m ON k.Manifestacija = m.IDManifestacije
+            WHERE m.IDManifestacije = {0}";
+
+            var kupljenaMjesta = await _context.KupljenaMjesta
+            .FromSqlRaw(sql, id)
+            .Select(km => new KupljenoMjestoViewModel
+            {
+                BrojReda = km.BrojReda,
+                BrojKolone = km.BrojKolone
+            })
+            .ToListAsync();
+
+            ViewBag.KupljenaMjesta = kupljenaMjesta;
 
             return View(manifestacija);
         }
