@@ -1,0 +1,69 @@
+@inject SignInManager<Korisnik> SignInManager
+@{
+    var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
+}
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Upravljanje nalogom</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+    <style>
+        .nav-pills .nav-link {
+            display: flex;
+            align-items: center;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+            .nav-pills .nav-link i {
+                margin-right: 8px;
+            }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <h1 class="text-center mb-4">Upravljanje nalogom</h1>
+        <ul class="nav nav-pills flex-column">
+            <li class="nav-item">
+                <a class="nav-link @ManageNavPages.IndexNavClass(ViewContext)" id="profile" asp-page="./Index">
+                    <i class="bi bi-person-circle"></i> Profil
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link @ManageNavPages.EmailNavClass(ViewContext)" id="email" asp-page="./Email">
+                    <i class="bi bi-envelope"></i> Email
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link @ManageNavPages.ChangePasswordNavClass(ViewContext)" id="change-password" asp-page="./ChangePassword">
+                    <i class="bi bi-lock"></i> Lozinka
+                </a>
+            </li>
+            @if (hasExternalLogins)
+            {
+                <li id="external-logins" class="nav-item">
+                    <a id="external-login" class="nav-link @ManageNavPages.ExternalLoginsNavClass(ViewContext)" asp-page="./ExternalLogins">
+                        <i class="bi bi-box-arrow-in-right"></i> Vanjske prijave
+                    </a>
+                </li>
+            }
+            <li class="nav-item">
+                <a class="nav-link @ManageNavPages.TwoFactorAuthenticationNavClass(ViewContext)" id="two-factor" asp-page="./TwoFactorAuthentication">
+                    <i class="bi bi-shield-lock"></i> Dvostruka autentifikacija
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link @ManageNavPages.PersonalDataNavClass(ViewContext)" id="personal-data" asp-page="./PersonalData">
+                    <i class="bi bi-person-badge"></i> Osobni podaci
+                </a>
+            </li>
+        </ul>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>

@@ -1,54 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\DT User3\\Desktop\\Projekat\\OnlineRezervacija-ProdajaKarata-Tim37\\Implementacija aplikacije\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{3BB6FC60-9713-4519-8DB1-C6E99E6F186D}|OnlineProdajaKarata\\OnlineProdajaKarata.csproj|c:\\users\\dt user3\\desktop\\projekat\\onlinerezervacija-prodajakarata-tim37\\implementacija aplikacije\\onlineprodajakarata\\views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3BB6FC60-9713-4519-8DB1-C6E99E6F186D}|OnlineProdajaKarata\\OnlineProdajaKarata.csproj|solutionrelative:onlineprodajakarata\\views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3BB6FC60-9713-4519-8DB1-C6E99E6F186D}|OnlineProdajaKarata\\OnlineProdajaKarata.csproj|c:\\users\\dt user3\\desktop\\projekat\\onlinerezervacija-prodajakarata-tim37\\implementacija aplikacije\\onlineprodajakarata\\views\\manifestacija\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3BB6FC60-9713-4519-8DB1-C6E99E6F186D}|OnlineProdajaKarata\\OnlineProdajaKarata.csproj|solutionrelative:onlineprodajakarata\\views\\manifestacija\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "_LoginPartial.cshtml",
-              "DocumentMoniker": "C:\\Users\\DT User3\\Desktop\\Projekat\\OnlineRezervacija-ProdajaKarata-Tim37\\Implementacija aplikacije\\OnlineProdajaKarata\\Views\\Shared\\_LoginPartial.cshtml",
-              "RelativeDocumentMoniker": "OnlineProdajaKarata\\Views\\Shared\\_LoginPartial.cshtml",
-              "ToolTip": "C:\\Users\\DT User3\\Desktop\\Projekat\\OnlineRezervacija-ProdajaKarata-Tim37\\Implementacija aplikacije\\OnlineProdajaKarata\\Views\\Shared\\_LoginPartial.cshtml",
-              "RelativeToolTip": "OnlineProdajaKarata\\Views\\Shared\\_LoginPartial.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAEAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-13T19:04:16.862Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\DT User3\\Desktop\\Projekat\\OnlineRezervacija-ProdajaKarata-Tim37\\Implementacija aplikacije\\OnlineProdajaKarata\\Views\\Manifestacija\\Create.cshtml",
-              "RelativeDocumentMoniker": "OnlineProdajaKarata\\Views\\Manifestacija\\Create.cshtml",
-              "ToolTip": "C:\\Users\\DT User3\\Desktop\\Projekat\\OnlineRezervacija-ProdajaKarata-Tim37\\Implementacija aplikacije\\OnlineProdajaKarata\\Views\\Manifestacija\\Create.cshtml",
-              "RelativeToolTip": "OnlineProdajaKarata\\Views\\Manifestacija\\Create.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-13T19:02:13.718Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
+      "DocumentGroups": []
     }
   ]
 }
