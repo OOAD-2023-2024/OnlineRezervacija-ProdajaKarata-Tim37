@@ -29,7 +29,11 @@ namespace OnlineProdajaKarata.Controllers
         // GET: Manifestacija
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Manifestacija.ToListAsync());
+            var trenutniDatum = DateTime.Now;
+            var manifestacije = await _context.Manifestacija
+                .Where(m => m.DatumVrijeme > trenutniDatum)
+                .ToListAsync();
+            return View(manifestacije);
         }
 
         // GET: Manifestacija/Details/5
@@ -62,6 +66,19 @@ namespace OnlineProdajaKarata.Controllers
                 BrojKolone = km.BrojKolone
             })
             .ToListAsync();
+
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var sql1 = @"
+                    SELECT BrojKupljenihKarata
+                    FROM AspNetUsers
+                    WHERE Id = {0}";
+
+            var kolicinaKarata = await _context.Users
+                .FromSqlRaw(sql1, userId)
+                .Select(k => k.BrojKupljenihKarata)
+                .FirstOrDefaultAsync();
+
+            ViewBag.KolicinaKarata = kolicinaKarata;
 
             ViewBag.KupljenaMjesta = kupljenaMjesta;
 
@@ -197,18 +214,6 @@ namespace OnlineProdajaKarata.Controllers
                 return View("Error", new ErrorViewModel());
             }
         }
-        /*[HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> KupiKartu([Bind("ID,Naziv,ECTS")] Predmet predmet
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(predmet);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(predmet);
-        }*/
         public async Task<bool> RezervisiSediste(int manifestacijaId, int red, int kolona)
         {
             // Ovde bi išla logika za pristup bazi i rezervaciju sedišta
@@ -245,7 +250,6 @@ namespace OnlineProdajaKarata.Controllers
                 };
                 int rowsAffected = await _context.Database.ExecuteSqlRawAsync(query, parameters);
 
-                string query1 = "SELECT MAX(IdKarte) FROM Karta";
                 int maxId = await _context.Karta.MaxAsync(k => k.IdKarte);
 
                 string query2 = "INSERT INTO KupljenaMjesta (Karta, BrojReda, BrojKolone) VALUES (@Karta, @BrojReda, @BrojKolone)";
@@ -256,8 +260,31 @@ namespace OnlineProdajaKarata.Controllers
                      new SqlParameter("@BrojKolone", kolona)
                  };
                  int rowsAffected2 = await _context.Database.ExecuteSqlRawAsync(query2, parameters2);
-                
-                 return true;
+
+                //POVECAVANJE KUPLJENIH KARATA
+                var sql1 = @"
+                    SELECT BrojKupljenihKarata
+                    FROM AspNetUsers
+                    WHERE Id = {0}";
+
+                var kolicinaKarata = await _context.Users
+                    .FromSqlRaw(sql1, userId)
+                    .Select(k => k.BrojKupljenihKarata)
+                    .FirstOrDefaultAsync();
+
+                ViewBag.KolicinaKarata = kolicinaKarata;
+
+                var sql2 = @"
+                            UPDATE AspNetUsers
+                            SET BrojKupljenihKarata = @newBrojKupljenihKarata
+                            WHERE Id = @userId";
+
+                await _context.Database.ExecuteSqlRawAsync(sql2,
+                    new SqlParameter("@newBrojKupljenihKarata", kolicinaKarata + 1),
+                    new SqlParameter("@userId", userId));
+
+
+                return true;
             }
             return false;
         }

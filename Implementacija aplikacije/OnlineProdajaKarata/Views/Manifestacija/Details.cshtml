@@ -2,111 +2,125 @@
 
 @{
     ViewData["Title"] = "Details";
-    var kupljenaMjesta = ViewBag.KupljenaMjesta;
+    var kupljenaMjesta = (IEnumerable<OnlineProdajaKarata.Models.KupljenoMjestoViewModel>)ViewBag.KupljenaMjesta;
+    var kolicinaKarata = ViewBag.KolicinaKarata;
 }
 
-<h1>Kupi</h1>
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        .seat-table td {
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            border: 1px solid black;
+            padding: 5px;
+        }
 
-<div>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.NazivManifestacije)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.NazivManifestacije)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.DatumVrijeme)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.DatumVrijeme)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Kategorija)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Kategorija)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.MjestoOdrzavanja)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.MjestoOdrzavanja)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TrajanjeManifestacije)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TrajanjeManifestacije)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.OpisManifestacije)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.OpisManifestacije)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.CijenaKarte)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.CijenaKarte)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Slika)
-        </dt>
-        <dd class="col-sm-10">
-            <img src="@Model.Slika" alt="Greska" width="200" />
-        </dd>
-        <dt>
-            <table style="border-collapse: collapse;">
-                <tr>
-                    <td style="padding: 5px;"></td>
-                    @for (int k = 1; k <= 30; k++)
+            .seat-table td.booked {
+                background-color: #FFA07A;
+            }
+
+            .seat-table td.available {
+                background-color: #90EE90;
+            }
+
+        .seat-table th, .seat-table td {
+            padding: 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-4">Kupi kartu</h1>
+        <div class="card">
+            <div class="card-body">
+                <dl class="row">
+                    <dt class="col-sm-3">@Html.DisplayNameFor(model => model.NazivManifestacije)</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.NazivManifestacije)</dd>
+
+                    <dt class="col-sm-3">@Html.DisplayNameFor(model => model.DatumVrijeme)</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.DatumVrijeme)</dd>
+
+                    <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Kategorija)</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.Kategorija)</dd>
+
+                    <dt class="col-sm-3">@Html.DisplayNameFor(model => model.MjestoOdrzavanja)</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.MjestoOdrzavanja)</dd>
+
+                    <dt class="col-sm-3">@Html.DisplayNameFor(model => model.TrajanjeManifestacije)</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.TrajanjeManifestacije)</dd>
+
+                    <dt class="col-sm-3">@Html.DisplayNameFor(model => model.OpisManifestacije)</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.OpisManifestacije)</dd>
+                    
+                    <dt class="col-sm-3">@Html.DisplayNameFor(model => model.CijenaKarte)</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.CijenaKarte)</dd>
+
+                    <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Slika)</dt>
+                    <dd class="col-sm-9"><img src="@Model.Slika" alt="Greska" class="img-fluid" width="200" /></dd>
+                </dl>
+                @{
+                    if (kolicinaKarata % 5 == 0)
                     {
-                        <td style="padding: 5px; font-weight: bold;">@k</td>
+                        Console.WriteLine("HRNJA");
+                        <h2>Uz sljedecu kupljenu kartu ostvarujete popust od 30%!</h2>
                     }
-                </tr>
-                @for (int i = 1; i <= 30; i++)
-                {
-                    <tr>
-                        <td style="padding: 5px; font-weight: bold;">@i</td>
-                        @for (int j = 1; j <= 30; j++)
-                        {
-                            var isKupljeno = false;
-                            foreach (var mjesto in kupljenaMjesta)
-                            {
-                                if (mjesto.BrojReda == i && mjesto.BrojKolone == j)
-                                {
-                                    isKupljeno = true;
-                                    break;
-                                }
-                            }
-                            <td style="width: 30px; height: 30px; text-align: center; border: 1px solid black; padding: 5px; background-color: @(isKupljeno ? "#FFA07A" : "#90EE90");">@Html.Raw(isKupljeno ? "X" : "O")</td>
-                        }
-                    </tr>
                 }
-            </table>
-        </dt>
-        <form asp-action="KupiKartu" asp-controller="Manifestacija" method="post">
-        <input type="hidden" name="ManifestacijaId" value="@Model.IDManifestacije" />
-            <div style="margin-top: 20px; margin-bottom: 20px;">
-            <label for="brojReda">Unesite red sjedista:</label>
-                <input type="number" id="brojReda" name="brojReda" style="margin-right: 20px;" min="1" max="30" required>
-            <label for="brojKolone">Unesite kolonu sjedista:</label>
-            <input type="number" id="brojKolone" name="brojKolone" min="1" max="30" required>
+                <h3 class="my-4">Izaberite sjediste</h3>
+                <div class="table-responsive">
+                    <table class="table seat-table">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                @for (int k = 1; k <= 30; k++)
+                                {
+                                    <th>@k</th>
+                                }
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (int i = 1; i <= 30; i++)
+                            {
+                                <tr>
+                                    <th>@i</th>
+                                    @for (int j = 1; j <= 30; j++)
+                                    {
+                                        var isKupljeno = kupljenaMjesta.Any(mjesto => mjesto.BrojReda == i && mjesto.BrojKolone == j);
+                                        <td class="@(isKupljeno ? "booked" : "available")">@Html.Raw(isKupljeno ? "X" : "O")</td>
+                                    }
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <form asp-action="KupiKartu" asp-controller="Manifestacija" method="post">
+                    <input type="hidden" name="ManifestacijaId" value="@Model.IDManifestacije" />
+                    <div class="form-group mt-4">
+                        <label for="brojReda">Unesite red sjedista:</label>
+                        <input type="number" id="brojReda" name="brojReda" class="form-control" min="1" max="30" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="brojKolone">Unesite kolonu sjedista:</label>
+                        <input type="number" id="brojKolone" name="brojKolone" class="form-control" min="1" max="30" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Kupi kartu</button>
+                </form>
+            </div>
         </div>
-            <button type="submit" style="width: 100%; padding: 10px; font-size: 16px; margin-bottom: 20px;">Kupi kartu</button>
-        </form>
-        
-    </dl>
-</div>
-
-<div>
-    @if (User.IsInRole("Admin") || User.IsInRole("Employee"))
-    {
-        <a asp-action="Edit" asp-route-id="@Model?.IDManifestacije">Izmjeni</a>
-        <nobr>|</nobr>
-    }
-    <a asp-action="Index">Nazad</a>
-</div>
+        <div class="mt-4">
+            @if (User.IsInRole("Admin") || User.IsInRole("Employee"))
+            {
+                <a asp-action="Edit" asp-route-id="@Model?.IDManifestacije" class="btn btn-warning">Izmjeni</a>
+                <span class="mx-2">|</span>
+            }
+            <a asp-action="Index" class="btn btn-secondary">Nazad</a>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
