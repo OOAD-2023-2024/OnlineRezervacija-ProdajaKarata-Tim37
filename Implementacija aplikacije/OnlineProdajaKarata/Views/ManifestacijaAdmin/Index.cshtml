@@ -1,0 +1,89 @@
+﻿@model IEnumerable<OnlineProdajaKarata.Models.Manifestacija>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - OnlineProdajaKarata</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <style>
+        .table th, .table td {
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        .table img {
+            max-width: 100px;
+            height: auto;
+        }
+
+        .action-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .btn-action {
+            width: 100%;
+            max-width: 150px;
+        }
+
+        .table tbody tr {
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <h1 class="text-center mb-4">Manifestacije</h1>
+        <table class="table table-striped table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th></th>
+                    <th>Naziv</th>
+                    <th>Kategorija</th>
+                    <th>Lokacija</th>
+                    <th>Trajanje</th>
+                    <th>Opis</th>
+                    <th>Cijena</th>
+                    <th>Vrijeme događaja</th>
+                    <th>Akcija</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <img src="@item.Slika" alt="@item.NazivManifestacije" />
+                        </td>
+                        <td>@Html.DisplayFor(modelItem => item.NazivManifestacije)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Kategorija)</td>
+                        <td>@Html.DisplayFor(modelItem => item.MjestoOdrzavanja)</td>
+                        <td>@Html.DisplayFor(modelItem => item.TrajanjeManifestacije)</td>
+                        <td>@Html.DisplayFor(modelItem => item.OpisManifestacije)</td>
+                        <td>@Html.DisplayFor(modelItem => item.CijenaKarte)</td>
+                        <td>@Html.DisplayFor(modelItem => item.DatumVrijeme)</td>
+                        <td class="action-links">
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <a class="btn btn-primary btn-sm btn-action" asp-action="Details" asp-route-id="@item.IDManifestacije">Pregled Korisnika</a>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>
