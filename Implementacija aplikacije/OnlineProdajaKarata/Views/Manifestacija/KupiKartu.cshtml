@@ -1,23 +1,47 @@
-﻿
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <style>
         .center-text {
             text-align: center;
             margin-top: 20%;
-            font-size: 24px;
-            font-weight: bold;
         }
+
+        .status-box {
+            border: 1px solid #ced4da;
+            background-color: #e9f7ef;
+            padding: 20px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+            .status-box .icon {
+                color: green;
+                font-size: 24px;
+                vertical-align: middle;
+            }
+
+            .status-box .message {
+                display: inline-block;
+                margin-left: 10px;
+                vertical-align: middle;
+                font-size: 18px;
+                font-weight: bold;
+            }
     </style>
 </head>
 <body>
-    <div class="center-text">
-        Kupili ste kartu
+    <div class="container center-text">
+        <div class="status-box">
+            <span class="icon">✔</span>
+            <span class="message">Kupili ste kartu</span>
+        </div>
     </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-

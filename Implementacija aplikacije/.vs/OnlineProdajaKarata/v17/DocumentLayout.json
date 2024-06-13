@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\DT User3\\Desktop\\Projekat\\OnlineRezervacija-ProdajaKarata-Tim37\\Implementacija aplikacije\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{3BB6FC60-9713-4519-8DB1-C6E99E6F186D}|OnlineProdajaKarata\\OnlineProdajaKarata.csproj|c:\\users\\dt user3\\desktop\\projekat\\onlinerezervacija-prodajakarata-tim37\\implementacija aplikacije\\onlineprodajakarata\\views\\manifestacija\\kupikartu.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3BB6FC60-9713-4519-8DB1-C6E99E6F186D}|OnlineProdajaKarata\\OnlineProdajaKarata.csproj|solutionrelative:onlineprodajakarata\\views\\manifestacija\\kupikartu.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{3BB6FC60-9713-4519-8DB1-C6E99E6F186D}|OnlineProdajaKarata\\OnlineProdajaKarata.csproj|c:\\users\\dt user3\\desktop\\projekat\\onlinerezervacija-prodajakarata-tim37\\implementacija aplikacije\\onlineprodajakarata\\views\\manifestacijaadmin\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{3BB6FC60-9713-4519-8DB1-C6E99E6F186D}|OnlineProdajaKarata\\OnlineProdajaKarata.csproj|solutionrelative:onlineprodajakarata\\views\\manifestacijaadmin\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -38,11 +42,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "KupiKartu.cshtml",
+              "DocumentMoniker": "C:\\Users\\DT User3\\Desktop\\Projekat\\OnlineRezervacija-ProdajaKarata-Tim37\\Implementacija aplikacije\\OnlineProdajaKarata\\Views\\Manifestacija\\KupiKartu.cshtml",
+              "RelativeDocumentMoniker": "OnlineProdajaKarata\\Views\\Manifestacija\\KupiKartu.cshtml",
+              "ToolTip": "C:\\Users\\DT User3\\Desktop\\Projekat\\OnlineRezervacija-ProdajaKarata-Tim37\\Implementacija aplikacije\\OnlineProdajaKarata\\Views\\Manifestacija\\KupiKartu.cshtml",
+              "RelativeToolTip": "OnlineProdajaKarata\\Views\\Manifestacija\\KupiKartu.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAC8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-13T23:13:21.598Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\DT User3\\Desktop\\Projekat\\OnlineRezervacija-ProdajaKarata-Tim37\\Implementacija aplikacije\\OnlineProdajaKarata\\Views\\ManifestacijaAdmin\\Index.cshtml",
               "RelativeDocumentMoniker": "OnlineProdajaKarata\\Views\\ManifestacijaAdmin\\Index.cshtml",
@@ -50,12 +67,11 @@
               "RelativeToolTip": "OnlineProdajaKarata\\Views\\ManifestacijaAdmin\\Index.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAFkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-13T23:04:33.01Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-13T23:04:33.01Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\DT User3\\Desktop\\Projekat\\OnlineRezervacija-ProdajaKarata-Tim37\\Implementacija aplikacije\\OnlineProdajaKarata\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "OnlineProdajaKarata\\Views\\Shared\\_Layout.cshtml",
@@ -63,12 +79,11 @@
               "RelativeToolTip": "OnlineProdajaKarata\\Views\\Shared\\_Layout.cshtml",
               "ViewState": "AQIAAAEAAAAAAAAAAAAmwCUAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-13T22:57:55.074Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-13T22:57:55.074Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "ManifestacijaController.cs",
               "DocumentMoniker": "C:\\Users\\DT User3\\Desktop\\Projekat\\OnlineRezervacija-ProdajaKarata-Tim37\\Implementacija aplikacije\\OnlineProdajaKarata\\Controllers\\ManifestacijaController.cs",
               "RelativeDocumentMoniker": "OnlineProdajaKarata\\Controllers\\ManifestacijaController.cs",
@@ -76,12 +91,11 @@
               "RelativeToolTip": "OnlineProdajaKarata\\Controllers\\ManifestacijaController.cs",
               "ViewState": "AQIAADUAAAAAAAAAAAAwwFgAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-13T22:57:23.618Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-13T22:57:23.618Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "KartaController.cs",
               "DocumentMoniker": "C:\\Users\\DT User3\\Desktop\\Projekat\\OnlineRezervacija-ProdajaKarata-Tim37\\Implementacija aplikacije\\OnlineProdajaKarata\\Controllers\\KartaController.cs",
               "RelativeDocumentMoniker": "OnlineProdajaKarata\\Controllers\\KartaController.cs",
@@ -89,12 +103,11 @@
               "RelativeToolTip": "OnlineProdajaKarata\\Controllers\\KartaController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-13T22:57:21.538Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-13T22:57:21.538Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "HomeController.cs",
               "DocumentMoniker": "C:\\Users\\DT User3\\Desktop\\Projekat\\OnlineRezervacija-ProdajaKarata-Tim37\\Implementacija aplikacije\\OnlineProdajaKarata\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "OnlineProdajaKarata\\Controllers\\HomeController.cs",
@@ -102,12 +115,11 @@
               "RelativeToolTip": "OnlineProdajaKarata\\Controllers\\HomeController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-13T22:57:19.442Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-13T22:57:19.442Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "ManifestacijaAdminController.cs",
               "DocumentMoniker": "C:\\Users\\DT User3\\Desktop\\Projekat\\OnlineRezervacija-ProdajaKarata-Tim37\\Implementacija aplikacije\\OnlineProdajaKarata\\Controllers\\ManifestacijaAdminController.cs",
               "RelativeDocumentMoniker": "OnlineProdajaKarata\\Controllers\\ManifestacijaAdminController.cs",
@@ -115,12 +127,11 @@
               "RelativeToolTip": "OnlineProdajaKarata\\Controllers\\ManifestacijaAdminController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-13T22:14:03.449Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-13T22:14:03.449Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Details.cshtml",
               "DocumentMoniker": "C:\\Users\\DT User3\\Desktop\\Projekat\\OnlineRezervacija-ProdajaKarata-Tim37\\Implementacija aplikacije\\OnlineProdajaKarata\\Views\\ManifestacijaAdmin\\Details.cshtml",
               "RelativeDocumentMoniker": "OnlineProdajaKarata\\Views\\ManifestacijaAdmin\\Details.cshtml",

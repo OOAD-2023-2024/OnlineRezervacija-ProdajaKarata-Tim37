@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OnlineProdajaKarata")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f2f3563206d24f18f4830829464a724810e812d6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+21254a87d240b0d263581e7a09eedd477c7252a3")]
 [assembly: System.Reflection.AssemblyProductAttribute("OnlineProdajaKarata")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OnlineProdajaKarata")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
