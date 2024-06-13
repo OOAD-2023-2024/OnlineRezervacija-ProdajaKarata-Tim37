@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OnlineProdajaKarata.Models;
 using System.Diagnostics;
@@ -17,10 +18,10 @@ namespace OnlineProdajaKarata.Controllers
         {
             return RedirectToAction("Index", "Manifestacija");
         }
-
+        [Authorize]
         public IActionResult Privacy()
         {
-            return View();
+            return RedirectToAction("Index", "Karta");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

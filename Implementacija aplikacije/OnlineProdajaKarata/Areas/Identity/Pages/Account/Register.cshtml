@@ -1,24 +1,24 @@
 ﻿@page
 @model RegisterModel
 @{
-    ViewData["Title"] = "Register";
+    ViewData["Title"] = "Registracija";
 }
 
-<h1>@ViewData["Title"]</h1>
+<h1 class="text-center">@ViewData["Title"]</h1>
 
-<div class="row">
-    <div class="col-md-4">
+<div class="row justify-content-center">
+    <div class="col-md-6">
         <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
-            <h2>Create a new account.</h2>
+            <h2 class="text-center">Kreirajte novi račun.</h2>
             <hr />
-            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3" role="alert"></div>
             <div class="form-floating mb-3">
-                <input asp-for="Input.Ime" class="form-control" autocomplete="Ime" aria-required="true" placeholder="ime" />
+                <input asp-for="Input.Ime" class="form-control" autocomplete="Ime" aria-required="true" placeholder="Ime" />
                 <label asp-for="Input.Ime">Ime</label>
                 <span asp-validation-for="Input.Ime" class="text-danger"></span>
             </div>
             <div class="form-floating mb-3">
-                <input asp-for="Input.Prezime" class="form-control" autocomplete="Prezime" aria-required="true" placeholder="prezime" />
+                <input asp-for="Input.Prezime" class="form-control" autocomplete="Prezime" aria-required="true" placeholder="Prezime" />
                 <label asp-for="Input.Prezime">Prezime</label>
                 <span asp-validation-for="Input.Prezime" class="text-danger"></span>
             </div>
@@ -28,13 +28,13 @@
                 <span asp-validation-for="Input.JMBG" class="text-danger"></span>
             </div>
             <div class="form-floating mb-3">
-                <input asp-for="Input.KorisnickoIme" class="form-control" autocomplete="Korisnicko Ime" aria-required="true" placeholder="Korisnicko Ime" />
-                <label asp-for="Input.KorisnickoIme">Korisnicko Ime</label>
+                <input asp-for="Input.KorisnickoIme" class="form-control" autocomplete="Korisnicko Ime" aria-required="true" placeholder="Korisničko ime" />
+                <label asp-for="Input.KorisnickoIme">Korisničko ime</label>
                 <span asp-validation-for="Input.KorisnickoIme" class="text-danger"></span>
             </div>
             <div class="form-floating mb-3">
-                <input asp-for="Input.DatumRodjenja" class="form-control" autocomplete="Datum Rodjenja" aria-required="true" placeholder="Datum Rodjenja" />
-                <label asp-for="Input.DatumRodjenja">Datum Rodjenja</label>
+                <input asp-for="Input.DatumRodjenja" class="form-control" autocomplete="Datum Rodjenja" aria-required="true" placeholder="Datum rođenja" />
+                <label asp-for="Input.DatumRodjenja">Datum rođenja</label>
                 <span asp-validation-for="Input.DatumRodjenja" class="text-danger"></span>
             </div>
             <div class="form-floating mb-3">
@@ -43,13 +43,13 @@
                 <span asp-validation-for="Input.Email" class="text-danger"></span>
             </div>
             <div class="form-floating mb-3">
-                <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
-                <label asp-for="Input.Password">Password</label>
+                <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="Lozinka" />
+                <label asp-for="Input.Password">Lozinka</label>
                 <span asp-validation-for="Input.Password" class="text-danger"></span>
             </div>
             <div class="form-floating mb-3">
-                <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
-                <label asp-for="Input.ConfirmPassword">Confirm Password</label>
+                <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="Potvrdite lozinku" />
+                <label asp-for="Input.ConfirmPassword">Potvrdite lozinku</label>
                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
             </div>
             <div class="form-floating mb-3">
@@ -57,38 +57,8 @@
                 <label asp-for="Input.Telefon">Telefon</label>
                 <span asp-validation-for="Input.Telefon" class="text-danger"></span>
             </div>
-            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
+            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Registruj se</button>
         </form>
-    </div>
-    <div class="col-md-6 col-md-offset-2">
-        <section>
-            <h3>Use another service to register.</h3>
-            <hr />
-            @{
-                if ((Model.ExternalLogins?.Count ?? 0) == 0)
-                {
-                    <div>
-                        <p>
-                            There are no external authentication services configured. See this <a href="https://go.microsoft.com/fwlink/?LinkID=532715">article
-                            about setting up this ASP.NET application to support logging in via external services</a>.
-                        </p>
-                    </div>
-                }
-                else
-                {
-                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
-                        <div>
-                            <p>
-                                @foreach (var provider in Model.ExternalLogins!)
-                                {
-                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
-                                }
-                            </p>
-                        </div>
-                    </form>
-                }
-            }
-        </section>
     </div>
 </div>
 

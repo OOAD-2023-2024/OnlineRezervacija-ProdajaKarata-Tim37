@@ -1,0 +1,71 @@
+﻿@model IEnumerable<OnlineProdajaKarata.Models.Karta>
+
+@{
+    ViewData["Title"] = "Index";
+    var karte = ViewBag.Karte;
+    var manifestacije = ViewBag.Manifestacije;
+    var listaSlika = ViewBag.Slike;
+    var listaRedova = ViewBag.Redovi;
+    var listaKolona = ViewBag.Kolone;
+    var listaDatuma = ViewBag.Datumi;
+    int br = 0;
+}
+
+<h1 class="my-4">Moje Karte</h1>
+
+<table class="table table-striped table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th></th>
+            <th>Red</th>
+            <th>Kolona</th>
+            <th>Datum Kupovine</th>
+            <th>Datum Odrzavanja</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @{
+                        var slika = listaSlika[br];
+                    }
+                    <img src="@slika" alt="@item.Kolicina" class="img-fluid" width="100" />
+                </td>
+                <td>
+                    @{
+                        var red = listaRedova[br];
+                    }
+                    <p class="mb-0">@red</p>
+                </td>
+                <td>
+                    @{
+                        var kolona = listaKolona[br];
+                    }
+                    <p class="mb-0">@kolona</p>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DatumKupovine)
+                </td>
+                <td>
+                    @{
+                        var datum = listaDatuma[br];
+                        br++;
+                    }
+                    <p class="mb-0">@datum</p>
+                </td>
+                <td>
+                    <a asp-action="Delete" asp-route-id="@item.IdKarte" class="btn btn-danger btn-sm">Otkazi</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
